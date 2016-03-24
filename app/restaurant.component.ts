@@ -13,8 +13,9 @@ import { Restaurant } from './restaurant.model';
               <img class="img-responsive" alt="boxer">
             </div>
             <div class="image_container_wrapper">
-              <div class="caption">
+              <div class="caption text-center">
                 <h3>{{ restaurant.name }}</h3>
+                <h3>{{ restaurant.expense }}</h3>
                 <h4 class="rating"> Rating:</h4>
                 <span *ngFor="#star of starRating()"><i class='{{ star }}'></i></span>
                 <span><h5>{{ averageRating() }}</h5></span>
