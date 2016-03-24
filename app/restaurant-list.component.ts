@@ -11,20 +11,21 @@ import { CuisinePipe } from './cuisine.pipe';
   pipes: [CuisinePipe],
   directives: [RestaurantComponent, EditRestaurantComponent],
   template: `
-  <select (change)="onChange($event.target.value)">
-    <option value=''>All</option>
-    <option value='{{currentRestaurant.cuisine }}' *ngFor="#currentRestaurant of restaurantList">{{currentRestaurant.cuisine}}</option>
-  </select>
+  <div class='container'>
+    <select (change)="onCuisineChange($event.target.value)">
+      <option value=''>All</option>
+      <option value='{{currentRestaurant.cuisine }}' *ngFor="#currentRestaurant of restaurantList">{{currentRestaurant.cuisine}}</option>
+    </select>
+  </div>
   <restaurant-display *ngFor="#currentRestaurant of restaurantList | cuisine:filterCuisine"
   (click)="restaurantClicked(currentRestaurant)"
   (click)="averageRating()"
   [restaurant]="currentRestaurant"
   [class.selected]="currentRestaurant === selectedRestaurant">
   </restaurant-display>
-  <div *ngIf="selectedRestaurant">
+  <div class='container' *ngIf="selectedRestaurant">
     <h3> {{ selectedRestaurant.name }} </h3>
     <h4> {{selectedRestaurant.address}} </h4>
-
     <label>Restaurant Expense: {{ selectedRestaurant.expense }}</label>
   </div>
   <edit-restaurant *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant">
@@ -51,6 +52,5 @@ export class RestaurantListComponent {
 
   onCuisineChange(filterOption) {
     this.filterCuisine = filterOption;
-    console.log(this.filterCuisine);
   }
 }

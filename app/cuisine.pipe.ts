@@ -17,9 +17,9 @@ export class CuisinePipe implements PipeTransform {
       return input.filter((restaurant) => {
         return restaurant.cuisine === "French";
       });
-    } else if (desiredRestaurants === 'Italian') {
+    } else if (desiredRestaurants === 'American') {
       return input.filter((restaurant) => {
-        return restaurant.cuisine === "Italian";
+        return restaurant.cuisine === "American";
       });
     } else {
       return input;

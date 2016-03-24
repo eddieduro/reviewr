@@ -5,7 +5,7 @@ import { Restaurant } from './restaurant.model';
   selector: 'edit-restaurant',
   inputs: ['restaurant'],
   template: `
-  <div class="restaurant-form">
+  <div class="restaurant-form container">
     <h3>Edit Restaurant: </h3>
     <div class="row">
       <label>Restaurant Name:</label>

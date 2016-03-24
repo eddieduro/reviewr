@@ -1,4 +1,112 @@
-.selected {
-  background-color: #CFD8DC;
-  color: blue;
+// Color variables
+$dark_color: #292929;
+
+// Font Variables
+@font-face {
+  src: url('/../../OstrichSans-Heavy.otf');
+  font-family: 'ostrich-heavy';
+}
+@font-face {
+  src: url('/../../OstrichSans-Light.otf');
+  font-family: 'ostrich-light';
+}
+@font-face {
+  src: url('/../../OstrichSans-Medium.otf');
+  font-family: 'ostrich-medium';
+}
+$heavy-font: 'ostrich-heavy';
+$medium-font: 'ostrich-medium';
+$light-font: 'ostrich-light';
+
+body{
+  background: url('/../../resources/images/bg.png') no-repeat center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  h1,h2{
+    font-family: $heavy-font;
+  }
+  h3,h4,h5{
+    font-family: $medium-font;
+  }
+}
+
+.contain{
+  margin-left: 25%;
+}
+.width_33 {
+    width: 365px;
+}
+.item {
+    float: left;
+    margin: 15px 1px 30px 10px;
+    @media(max-width: 425px){
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+.teaser {
+  background-color: #fff;
+}
+
+.image_container {
+
+    position: relative;
+    line-height: 0;
+    img{
+      height: 300px;
+      &:hover {
+        -webkit-transform: scale3d(1.2, 1.2, 1);
+        transform: scale3d(1.2, 1.2, 1);
+      }
+    }
+    *, *::before, *::after{
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+}
+restaurant-display:nth-of-type(1){
+  img{
+    background: url('https://cdn3.vox-cdn.com/thumbor/d8_ZHc8sjmt9kNG1n6cY2sZHWis=/0x52:1000x615/1600x900/cdn0.vox-cdn.com/uploads/chorus_image/image/38848892/boxer1000paint.0.jpg') center no-repeat;
+    background-size: cover;
+    width: 100%;
+  }
+}
+
+restaurant-display:nth-of-type(2){
+  img{
+    background: url('http://images.barnesandnoble.com/pImages/bn-review/2013/0926/LePigeon_AF.jpg') center no-repeat;
+    background-size: cover;
+    width: 100%;
+  }
+}
+restaurant-display:nth-of-type(3){
+  img{
+    background: url('http://nerdgirl-wp.s3.amazonaws.com/wp-content/uploads/2014/09/lardo-sandwich-shop-crowne.jpg') center no-repeat;
+    background-size: cover;
+    width: 100%;
+  }
+}
+.image_overflow {
+    overflow: hidden;
+    img{
+      background-color: red;
+    }
+}
+
+.teaser .thumb_image .image_container .image_container_wrapper {
+    position: relative;
+    padding: 40px;
+    height: 210px;
+    line-height: 28px;
+    background-color: white;
+}
+.caption {
+    font-size: 20px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #6a6a6a;
 }
