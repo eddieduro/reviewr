@@ -7,10 +7,14 @@ import { Restaurant } from './restaurant.model';
   template: `
   <div class="restaurant-form">
     <h3>Edit Restaurant: </h3>
-    <label>Restaurant Name:</label>
-    <input [(ngModel)]="restaurant.name" class="col-sm-8 input-lg task-form">
-    <label>Restaurant Address:</label>
-    <input [(ngModel)]="restaurant.address" class="col-sm-8 input-lg task-form">
+    <div class="row">
+      <label>Restaurant Name:</label>
+      <input [(ngModel)]="restaurant.name" class="col-sm-4 input-lg task-form">
+    </div>
+    <div class="row">
+      <label>Restaurant Address:</label>
+      <input [(ngModel)]="restaurant.address" class="col-sm-4 input-lg task-form">
+    </div>
     <label>Restaurant Expense:</label>
     <select (change)="onChange($event.target.value)">
       <option value="1">1</option>
@@ -27,8 +31,5 @@ export class EditRestaurantComponent {
   public restaurant: Restaurant;
   onChange(newCost) {
     this.restaurant.expense = newCost;
-  }
-  updatingRating(newRating) {
-    this.restaurant.rating = newRating;
   }
 }
