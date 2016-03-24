@@ -1,5 +1,7 @@
 // Color variables
 $dark_color: #292929;
+$secondary_color: #353535;
+$light_color: #3d3d3d;
 
 // Font Variables
 @font-face {
@@ -33,6 +35,9 @@ body{
 }
 
 .contain{
+  margin-left: 25%;
+}
+.container{
   margin-left: 25%;
 }
 .width_33 {
@@ -109,4 +114,89 @@ restaurant-display:nth-of-type(3){
     line-height: 30px;
     text-transform: uppercase;
     color: #6a6a6a;
+}
+
+.selectedRestaurant{
+  margin-left: 25%;
+}
+
+.form {
+    display: table;
+    margin: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 120px;
+    span{
+      .form-control {
+        border: white;
+        border-radius: 0px;
+      }
+    }
+    label {
+      position: relative;
+      display: block;
+
+      input {
+        font: 18px Helvetica, Arial, sans-serif;
+        box-sizing: border-box;
+        display: block;
+        border: none;
+        padding: 20px;
+        width: 300px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        outline: none;
+        transition: all 0.2s ease-in-out;
+
+        &::-webkit-input-placeholder {
+          transition: all 0.2s ease-in-out;
+          color: $secondary_color;
+          font: 18px;
+        }
+
+        &:focus, &.populated {
+          padding-top: 28px;
+          padding-bottom: 12px;
+
+          &::-webkit-input-placeholder {
+            color: transparent;
+          }
+
+          & + span {
+            opacity: 1;
+            top: 10px;
+          }
+        }
+
+      }
+    span {
+      color: $light_color;
+      font: 13px Helvetica, Arial, sans-serif;
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+  .btn {
+    border: 0;
+    background-color: $dark_color;
+    width: 100%;
+    display: inline;
+    margin-top: 10px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    height: 61px;
+    &:hover{
+      background-color: #2e2e2e;
+    }
+    &:focus{
+      outline: 0;
+      border: 0;
+    }
+    &:active {
+      border: 0;
+    }
+  }
 }

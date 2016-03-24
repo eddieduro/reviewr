@@ -23,7 +23,7 @@ import { CuisinePipe } from './cuisine.pipe';
   [restaurant]="currentRestaurant"
   [class.selected]="currentRestaurant === selectedRestaurant">
   </restaurant-display>
-  <div class='container' *ngIf="selectedRestaurant">
+  <div class='container selectedRestaurant' *ngIf="selectedRestaurant">
     <h3> {{ selectedRestaurant.name }} </h3>
     <h4> {{selectedRestaurant.address}} </h4>
     <label>Restaurant Expense: {{ selectedRestaurant.expense }}</label>
