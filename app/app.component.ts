@@ -22,9 +22,9 @@ export class AppComponent {
   public restaurants: Restaurant[];
   constructor(){
     this.restaurants = [
-      new Restaurant("Boxer Ramer", "Asian", "1234 Example st", 2, [1], 0),
-      new Restaurant("Le Pigeon", "French", "231 Fake st", 4, [1] , 1),
-      new Restaurant("Piazza Italia", "Italian", "1232 Marshall st", 3, [1], 2)
+      new Restaurant("Boxer Ramer", "Asian", "1234 Example st", '$$', [1], 0),
+      new Restaurant("Le Pigeon", "French", "231 Fake st", '$$$$', [1] , 1),
+      new Restaurant("Piazza Italia", "Italian", "1232 Marshall st", '$$$', [1], 2)
     ];
   }
   restaurantWasSelected(clickedRestaurant: Restaurant): void {
