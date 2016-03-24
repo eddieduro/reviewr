@@ -11,21 +11,24 @@ import { Restaurant } from './restaurant.model';
     <input [(ngModel)]="restaurant.name" class="col-sm-8 input-lg task-form">
     <label>Restaurant Address:</label>
     <input [(ngModel)]="restaurant.address" class="col-sm-8 input-lg task-form">
-    <label>Restaurant Rating:</label>
+    <label>Restaurant Expense:</label>
+    <select (change)="onChange($event.target.value)">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
   </div>
-  <select (change)="onChange($event.target.value)">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <select>
   `
 })
 
 export class EditRestaurantComponent {
   public restaurant: Restaurant;
-  onChange(newRating) {
+  onChange(newCost) {
+    this.restaurant.expense = newCost;
+  }
+  updatingRating(newRating) {
     this.restaurant.rating = newRating;
   }
 }

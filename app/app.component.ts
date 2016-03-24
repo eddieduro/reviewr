@@ -12,7 +12,8 @@ import { Restaurant } from './restaurant.model';
   	<h1>Reviewr</h1>
     <restaurant-list
     [restaurantList]="restaurants"
-    (onRestaurantSelect)="restaurantWasSelected($event)">
+    (onRestaurantSelect)="restaurantWasSelected($event)"
+    (onRatingSubmit)="ratingAverage($event)">
     </restaurant-list>
   <div>
   `
@@ -21,9 +22,9 @@ export class AppComponent {
   public restaurants: Restaurant[];
   constructor(){
     this.restaurants = [
-      new Restaurant("Boxer Ramer", "Asian", "1234 Example st", 2, 0),
-      new Restaurant("Le Pigeon", "French", "231 Fake st", 4, 1),
-      new Restaurant("Piazza Italia", "Italian", "1232 Marshall st", 3, 2)
+      new Restaurant("Boxer Ramer", "Asian", "1234 Example st", 2, [1], 0),
+      new Restaurant("Le Pigeon", "French", "231 Fake st", 4, [1] , 1),
+      new Restaurant("Piazza Italia", "Italian", "1232 Marshall st", 3, [1], 2)
     ];
   }
   restaurantWasSelected(clickedRestaurant: Restaurant): void {

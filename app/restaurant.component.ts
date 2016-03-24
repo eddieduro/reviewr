@@ -15,7 +15,4 @@ import { Restaurant } from './restaurant.model';
 
 export class RestaurantComponent {
   public restaurant: Restaurant;
-  setRating(newRating: number){
-    this.restaurant.rating = newRating;
-  }
 }
