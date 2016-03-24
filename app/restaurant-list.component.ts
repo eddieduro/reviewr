@@ -18,7 +18,7 @@ import { EditRestaurantComponent } from './edit-restaurant.component';
   <div *ngIf="selectedRestaurant">
     <h3> {{ selectedRestaurant.name }} </h3>
     <h4> {{selectedRestaurant.address}} </h4>
-    <h4 class="rating"> Rating: <span *ngFor="#star of averageRating()"><i class='{{ star }}'></i></span> </h4>
+    <h4 class="rating"> Rating: <span *ngFor="#star of starRating()"><i class='{{ star }}'></i></span><span>{{ averageRating() }}</span> </h4>
     <label>Restaurant Expense: {{ selectedRestaurant.expense }}</label>
   </div>
   <edit-restaurant *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant">
@@ -56,7 +56,7 @@ export class RestaurantListComponent {
     var ratingArray = this.selectedRestaurant.rating;
     ratingArray.push(Number(value));
   }
-  averageRating() {
+  starRating() {
     var defaultRating = 0;
     var ratingArray = [];
     var star = [];
@@ -66,9 +66,22 @@ export class RestaurantListComponent {
     }
     var totalRating = ratingArray.pop();
     var avgRating = totalRating /  Number(this.selectedRestaurant.rating.length);
-    for( let i = 0; i < avgRating; i++ ){
+    for( let i = 1; i < avgRating; i++ ){
       star.push('fa fa-star');
     }
     return star;
+  }
+  averageRating() {
+    var defaultRating = 0;
+    var ratingArray = [];
+    for(let i = 0; i < this.selectedRestaurant.rating.length; i++){
+      defaultRating = Number(defaultRating) + Number(this.selectedRestaurant.rating[i]);
+      ratingArray.push(defaultRating);
+    }
+    console.log(ratingArray);
+    var totalRating = ratingArray.pop();
+    var avgRating = totalRating /  Number(this.selectedRestaurant.rating.length);
+    var rating = avgRating.toFixed(2);
+    return rating;
   }
 }
