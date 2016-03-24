@@ -2,14 +2,20 @@ import { Component, EventEmitter } from 'angular2/core';
 import { RestaurantComponent } from './restaurant.component';
 import { Restaurant } from './restaurant.model';
 import { EditRestaurantComponent } from './edit-restaurant.component';
+import { CuisinePipe } from './cuisine.pipe';
 
 @Component ({
   selector: 'restaurant-list',
   inputs: ['restaurantList'],
   outputs: ['onRestaurantSelect'],
+  pipes: [CuisinePipe],
   directives: [RestaurantComponent, EditRestaurantComponent],
   template: `
-  <restaurant-display *ngFor="#currentRestaurant of restaurantList"
+  <select (change)="onChange($event.target.value)">
+    <option value=''>All</option>
+    <option value='{{currentRestaurant.cuisine }}' *ngFor="#currentRestaurant of restaurantList">{{currentRestaurant.cuisine}}</option>
+  </select>
+  <restaurant-display *ngFor="#currentRestaurant of restaurantList | cuisine:filterCuisine"
   (click)="restaurantClicked(currentRestaurant)"
   (click)="averageRating()"
   [restaurant]="currentRestaurant"
@@ -42,6 +48,7 @@ export class RestaurantListComponent {
   public onRestaurantSelect: EventEmitter<Restaurant>;
   public selectedRestaurant: Restaurant;
   public onRatingSubmit: EventEmitter<Number[]>;
+  public filterCuisine: Restaurant;
 
   constructor(){
     this.onRestaurantSelect = new EventEmitter();
@@ -83,5 +90,9 @@ export class RestaurantListComponent {
     var avgRating = totalRating /  Number(this.selectedRestaurant.rating.length);
     var rating = avgRating.toFixed(2);
     return rating;
+  }
+  onChange(filterOption) {
+    this.filterCuisine = filterOption;
+    console.log(this.filterCuisine);
   }
 }
